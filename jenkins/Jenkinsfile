@@ -30,6 +30,13 @@ pipeline {
             steps {
                 sh './jenkins/scripts/deploy.sh'
             }
+            post {
+                success {
+                    script {
+                        sleep(60)  // Menjeda eksekusi pipeline selama 1 menit
+                    }
+                }
+            }
         }
     }
 }
